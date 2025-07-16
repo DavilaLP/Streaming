@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - TechOffice</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="imagenes/Icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="imagenes/Icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagenes/Icon/favicon-16x16.png">
+    <link rel="manifest" href="imagenes/Icon/site.webmanifest">
+    
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo TechOffice" width="150">
+            <h1>TechOffice</h1>
+        </div>
+         <nav class="main-nav" aria-label="Menú principal">
+  <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
+    &#9776;
+  </button>
+
+  <ul id="nav-list" class="nav-list">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="accesorios-laptops.html">Laptops</a></li>
+    <li><a href="accesorios-tablets.html">Tablets</a></li>
+    <li><a href="cables-conectores.html">Cables</a></li>
+    <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+    <li><a href="carrito.html" title="Ver carrito de compras">
+      <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
+    </a></li>
+
+    <!-- Contenedor dinámico del usuario -->
+    <li id="nav-usuario" class="nav-usuario" style="display: none;">
+      <i class="fas fa-user-circle"></i>
+      <span id="nombre-usuario"></span>
+      <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
+    </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main>
+        <section class="formulario-contacto">
+            <h2>Contáctanos</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+                
+                <div class="form-group">
+                    <label for="asunto">Asunto:</label>
+                    <select id="asunto" name="asunto" required>
+                        <option value="">Seleccione un asunto</option>
+                        <option value="consulta">Consulta general</option>
+                        <option value="soporte">Soporte técnico</option>
+                        <option value="ventas">Información de ventas</option>
+                        <option value="reclamo">Reclamos</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <section class="informacion-contacto">
+            <h2>Información de Contacto</h2>
+            <div class="contacto-detalle">
+                <div>
+                    <h3>Dirección</h3>
+                    <p>Av. Tacna y Arica 160, Arequipa - Perú</p>
+                </div>
+                <div>
+                    <h3>Teléfonos</h3>
+                    <p>(054) 123-4567</p>
+                    <p>987-654-321</p>
+                </div>
+                <div>
+                    <h3>Horario de Atención</h3>
+                    <p>Lunes a Viernes: 9:00 am - 7:00 pm</p>
+                    <p>Sábados: 9:00 am - 2:00 pm</p>
+                </div>
+            </div>
+            
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.262318143905!2d-71.53738892470947!3d-16.39850628389661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a59ffc91b0b%3A0x9bc5f20a8af4b099!2sAv.%20Tacna%20y%20Arica%20160%2C%20Arequipa%2004001!5e0!3m2!1ses!2spe!4v1690844444444!5m2!1ses!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <p>TechOffice &copy; 2023 - Todos los derechos reservados</p>
+            <p>Av. Tacna y Arica 160, Arequipa - Perú</p>
+            <p>Teléfono: (054) 123-4567</p>
+        </div>
+
+        <div class="redes-sociales">
+            <a href="https://web.facebook.com/techoffice.ec/?_rdc=1&_rdr#" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://www.instagram.com/tech.office_/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+        </div>
+    </footer> 
+    <script src="JS/Js.js" ></script>
+</body>
+</html>
+
