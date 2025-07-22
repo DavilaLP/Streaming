@@ -2113,4 +2113,39 @@ footer .redes-sociales a:hover {
     border-radius: 50%;
     margin-top: 10px;
 }
+.video-container {
+    width: 40%; /* Ajusta el ancho del video al 50% */
+    margin: 0 auto; /* Centra el video horizontalmente */
+    padding-top: 20px; /* Opcional, espacio arriba */
+}
 
+video {
+    width: 70%; /* El video ocupará el 100% del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+/* Contenedor del carrusel */
+.carrusel {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  scroll-behavior: smooth;
+}
+
+/* Estilo para cada imagen del producto */
+.producto {
+  min-width: 250px;
+  max-width: 250px;
+  text-align: center;
+}
+
+.producto img {
+  width: 100%; /* Esto asegura que las imágenes se ajusten bien */
+  height: auto;
+}
+video {
+    width: 80%;
+    max-width: 640px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-top: 20px;
+}

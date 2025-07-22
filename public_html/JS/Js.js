@@ -81,3 +81,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const carrusel = document.querySelector('.productos-wrapper'); // Asegúrate de que este selector sea correcto
+  const scrollSpeed = 1;
+  let scrollPosition = 0;
+  
+  function moveCarrusel() {
+    carrusel.scrollLeft += scrollSpeed;
+
+    if (carrusel.scrollLeft >= carrusel.scrollWidth / 2) {
+      carrusel.scrollLeft = 0; // Vuelve al inicio cuando llega al final
+    }
+
+    // Llamar a la función de nuevo
+    requestAnimationFrame(moveCarrusel);
+  }
+
+  moveCarrusel();
+});
