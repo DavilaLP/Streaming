@@ -22,31 +22,30 @@
             <img src="logo.jpg" alt="Logo TechOffice" width="150"/> 
             <h1>TechOffice</h1>
         </div>
-           <nav class="main-nav" aria-label="Menú principal">
-  <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
-    &#9776;
-  </button>
+        <nav class="main-nav" aria-label="Menú principal">
+            <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
+                &#9776;
+            </button>
 
-  <ul id="nav-list" class="nav-list">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="PERFILES.html">Laptops</a></li>
-    <li><a href="accesorios-tablets.html">Tablets</a></li>
-    <li><a href="CUENTAS COMPLETAS.html">Cables</a></li>
-    <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-    <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
-    <li><a href="carrito.html" title="Ver carrito de compras">
-      <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
-    </a></li>
+            <ul id="nav-list" class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="PERFILES.html">Laptops</a></li>
+                <li><a href="accesorios-tablets.html">Tablets</a></li>
+                <li><a href="CUENTAS COMPLETAS.html">Cables</a></li>
+                <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+                <li><a href="carrito.html" title="Ver carrito de compras">
+                    <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
+                </a></li>
 
-    <!-- Contenedor dinámico del usuario -->
-    <li id="nav-usuario" class="nav-usuario" style="display: none;">
-      <i class="fas fa-user-circle"></i>
-      <span id="nombre-usuario"></span>
-      <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
-    </li>
-  </ul>
-</nav>
+                <li id="nav-usuario" class="nav-usuario" style="display: none;">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="nombre-usuario"></span>
+                    <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -109,26 +108,25 @@
                         <label for="metodo-pago">Método de Pago</label>
                         <select id="metodo-pago" name="metodo-pago" required>
                             <option value="">Seleccione un método</option>
-                            <option value="tarjeta">Tarjeta de Crédito/Débito</option>
-                            <option value="paypal">PayPal</option>
+                            <option value="yape-plin">Yape / Plin</option>
                             <option value="transferencia">Transferencia Bancaria</option>
                         </select>
                     </div>
-                    <div class="form-group" id="datos-tarjeta" style="display:none;">
-                        <label for="tarjeta">Número de Tarjeta</label>
-                        <input type="text" id="tarjeta" name="tarjeta" placeholder="1234 5678 9012 3456">
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
-                            <div>
-                                <label for="vencimiento">Vencimiento (MM/AA)</label>
-                                <input type="text" id="vencimiento" name="vencimiento" placeholder="MM/AA">
-                            </div>
-                            <div>
-                                <label for="cvv">CVV</label>
-                                <input type="text" id="cvv" name="cvv" placeholder="123">
-                            </div>
-                        </div>
+
+                    <!-- Opciones Yape/Plin -->
+                    <div id="opciones-yape-plin" style="display:none;">
+                        <p><strong>Yape o Plin:</strong></p>
+                        <p>973196501 A nombre de Duvan Dávila</p>
+                        <img src="imagenes/STREAMING FOTOS/yape.jpg" alt=""/>
                     </div>
+
+                    <!-- Opciones Transferencia Bancaria -->
+                    <div id="opciones-transferencia" style="display:none;">
+                        <p><strong>Transferencia Bancaria</strong></p>
+                        <p><strong>BCP:</strong> 21572610404038 A nombre de Duvan Dávila</p>
+                        <p><strong>Interbank:</strong> 8983323175626 A nombre de Duvan Dávila</p>
+                    </div>
+
                     <div class="form-group">
                         <label for="comentarios">Comentarios Adicionales</label>
                         <textarea id="comentarios" name="comentarios" placeholder="Notas sobre el pedido"></textarea>
@@ -136,16 +134,15 @@
                     <button type="submit" id="confirmar-pago">Confirmar Pago</button>
                 </form>
             </section>
-        </div>
 
-        <!-- Multimedia: Video promocional -->
-        <section class="multimedia">
-            <h2>¿Por qué comprar con nosotros?</h2>
-            <video controls width="100%" height="400">
-                <source src="Video/_Buscas_los_mejores_V1.mp4" type="video/mp4">
-                Tu navegador no soporta el video.
-            </video>
-        </section>
+            <!-- WhatsApp -->
+            <div id="whatsapp-button" style="display:none;">
+                <a href="https://wa.me/51913550624" target="_blank">
+                    <img src="imagenes/whatsapp-icon.png" alt="WhatsApp" width="50" />
+                </a>
+                <p>Envía tu comprobante de pago por WhatsApp</p>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -161,14 +158,6 @@
             <a href="https://wa.me/51913550624" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
         </div>
     </footer>
-
-    <!-- Modal de mensajes -->
-    <div id="modalMensaje" class="modal" style="display:none;">
-        <div class="modal-contenido">
-            <span id="cerrarModal" class="cerrar">&times;</span>
-            <p id="textoModal"></p>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script src="JS/Js.js" ></script>

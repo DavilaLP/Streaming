@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Función para renderizar los productos en la tabla
+    // Función para renderizar los productos en la tabla de resumen del carrito
     function renderizarProductosPago() {
         const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         const tbody = document.querySelector('.tabla-resumen tbody');
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Función para configurar eventos del formulario
+    // Función para configurar los eventos del formulario
     function configurarFormularioPago() {
         const metodoPago = document.getElementById('metodo-pago');
         const datosTarjeta = document.getElementById('datos-tarjeta');
@@ -140,8 +140,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Inicializar
+    // Función para mostrar las opciones de pago (Yape/Plin o Transferencia)
+    function configurarOpcionesPago() {
+        const metodoPago = document.getElementById('metodo-pago');
+        const opcionesYapePlin = document.getElementById('opciones-yape-plin');
+        const opcionesTransferencia = document.getElementById('opciones-transferencia');
+        
+        if (metodoPago) {
+            metodoPago.addEventListener('change', function() {
+                // Mostrar las opciones de pago según la selección
+                if (this.value === 'yape-plin') {
+                    opcionesYapePlin.style.display = 'block';
+                    opcionesTransferencia.style.display = 'none';
+                } else if (this.value === 'transferencia') {
+                    opcionesYapePlin.style.display = 'none';
+                    opcionesTransferencia.style.display = 'block';
+                } else {
+                    opcionesYapePlin.style.display = 'none';
+                    opcionesTransferencia.style.display = 'none';
+                }
+            });
+        }
+    }
+
+    // Inicializar las funciones
     renderizarProductosPago();
     configurarCuponDescuento();
     configurarFormularioPago();
+    configurarOpcionesPago();
 });

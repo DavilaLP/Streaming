@@ -1,79 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Pedidos - TechOffice</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Pedidos - La Tiendita de LP</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.jpg" alt="Logo TechOffice" width="150">
-            <h1>TechOffice</h1>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo La Tiendita de LP" width="150" />
+      <h1>La Tiendita de LP</h1>
+    </div>
+    <nav class="main-nav" aria-label="Menú principal">
+      <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
+        &#9776;
+      </button>
+
+      <ul id="nav-list" class="nav-list">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="PERFILES.html">Laptops</a></li>
+        <li><a href="accesorios-tablets.html">Tablets</a></li>
+        <li><a href="CUENTAS COMPLETAS.html">Cables</a></li>
+        <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+        <li><a href="carrito.html" title="Ver carrito de compras">
+          <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
+        </a></li>
+
+        <li id="nav-usuario" class="nav-usuario" style="display: none;">
+          <i class="fas fa-user-circle"></i>
+          <span id="nombre-usuario"></span>
+          <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="carrito-container">
+      <section class="productos-carrito">
+        <!-- Los productos se renderizan dinámicamente con JavaScript -->
+      </section>
+
+      <aside class="resumen-carrito">
+        <h3>Resumen del carrito</h3>
+        <p>Total: <span class="total">S/17.00</span></p>
+        <button id="vaciar-carrito">Vaciar carrito</button>
+        <a href="proceso-pago.html" id="proceder-pago">Proceder al pago</a>
+        <a href="seguimiento-pedidos.html" id="seguimiento-pedidos" class="boton-seguimiento">
+          <i class="fas fa-truck"></i> Seguimiento de Pedidos
+        </a>
+      </aside>
+    </div>
+
+    <article class="pedido-card">
+      <div class="pedido-header">
+        <h3>Pedido #001</h3>
+        <span class="fecha-pedido">22 de julio de 2025</span>
+        <button class="boton-estado estado-pendiente">PENDIENTE</button>
+      </div>
+
+      <div class="pedido-detalle">
+        <h4>Productos:</h4>
+        <ul class="lista-productos">
+          <li>
+            <span class="producto-nombre">Prime Video</span>
+            <span class="producto-cantidad">1 x S/17.00</span>
+            <span class="producto-subtotal">S/17.00</span>
+          </li>
+        </ul>
+
+        <div class="pedido-total">
+          <span>Total:</span>
+          <strong>S/17.00</strong>
         </div>
-           <nav class="main-nav" aria-label="Menú principal">
-  <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
-    &#9776;
-  </button>
+      </div>
 
-  <ul id="nav-list" class="nav-list">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="PERFILES.html">Laptops</a></li>
-    <li><a href="accesorios-tablets.html">Tablets</a></li>
-    <li><a href="CUENTAS COMPLETAS.html">Cables</a></li>
-    <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-    <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
-    <li><a href="carrito.html" title="Ver carrito de compras">
-      <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
-    </a></li>
+      <div class="pedido-acciones">
+        <button class="boton-secundario" onclick="window.location.href='preguntas-frecuentes.html'">
+          <i class="fas fa-question-circle"></i> Ayuda
+        </button>
+        <!-- Cambié "Seguir envío" por "Enviar baucher" y configuré la acción para WhatsApp -->
+        <button class="boton-primario" id="enviar-baucher" data-pedido-id="001">
+          <i class="fas fa-paperclip"></i> Enviar baucher
+        </button>
+      </div>
+    </article>
+  </main>
 
-    <!-- Contenedor dinámico del usuario -->
-    <li id="nav-usuario" class="nav-usuario" style="display: none;">
-      <i class="fas fa-user-circle"></i>
-      <span id="nombre-usuario"></span>
-      <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
-    </li>
-  </ul>
-</nav>
-    </header>
+  <footer>
+    <div class="footer-info">
+      <p>La Tiendita de LP &copy; 2023 - Todos los derechos reservados</p>
+      <p>Arequipa - Perú</p>
+      <p>Teléfono: 913550624</p>
+    </div>
 
-    <main>
-        <section class="banner">
-            <h2>Mis Pedidos</h2>
-            <p>Revisa el estado de tus compras realizadas</p>
-        </section>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com/profile.php?id=61555387720171" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+      <a href="https://wa.me/51913550624" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+    </div>
+  </footer>
 
-        <section class="contenedor-pedidos">
-            <div id="lista-pedidos" class="lista-pedidos">
-                <!-- Los pedidos se cargarán aquí dinámicamente -->
-                <div class="pedido-vacio">
-                    <i class="fas fa-box-open fa-3x"></i>
-                    <h3>Aún no tienes pedidos</h3>
-                    <p>Cuando realices un pedido, aparecerá aquí con todos sus detalles.</p>
-                    <a href="index.html" class="boton">Ir a comprar</a>
-                </div>
-            </div>
-        </section>
-    </main>
+  <script src="JS/Js.js"></script>
+  <script src="JS/carrito.js"></script>
+  <script src="JS/seguimiento-pedidos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Función para enviar baucher de pago a WhatsApp
+      const enviarBaucherBtns = document.querySelectorAll('#enviar-baucher');
+      
+      enviarBaucherBtns.forEach((btn) => {
+        btn.addEventListener('click', function() {
+          const pedidoId = this.getAttribute('data-pedido-id');
+          const mensaje = `¡Hola! Soy cliente de "La Tiendita de LP". Aquí está mi baucher de pago para el pedido #${pedidoId}:\n\n`;
 
-    <footer>
-        <div class="footer-info">
-            <p>La Tiendita de LP &copy; 2023 - Todos los derechos reservados</p>
-            <p>Arequipa - Perú</p>
-            <p>Teléfono: 913550624</p>
-        </div>
+          // Puedes incluir más detalles si los tienes almacenados en el pedido
+          const detallesPedido = `
+            Producto: Prime Video\n
+            Total: S/17.00\n
+          `;
 
-        <div class="redes-sociales">
-            <a href="https://www.facebook.com/profile.php?id=61555387720171" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-            <a href="https://wa.me/51913550624" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
-        </div>
-    </footer>
-    <script src="JS/Js.js" ></script>
-    <script src="JS/carrito.js"></script>
-    <script src="JS/seguimiento-pedidos.js"></script>
+          const mensajeFinal = encodeURIComponent(mensaje + detallesPedido);
+          window.open(`https://wa.me/51913550624?text=${mensajeFinal}`, '_blank');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
