@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuentas Completas - TechOffice</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="imagenes/Icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="imagenes/Icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagenes/Icon/favicon-16x16.png">
+    <link rel="manifest" href="imagenes/Icon/site.webmanifest">
+    
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="TIENDITA DE LP.png" alt=""/>
+            <h1>TechOffice</h1>
+        </div>
+           <nav class="main-nav" aria-label="Menú principal">
+  <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
+    &#9776;
+  </button>
+
+  <ul id="nav-list" class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="PERFILES.html">Perfiles</a></li>
+                <li><a href="CUENTAS COMPLETAS.html">Cuentas Completas</a></li>
+                <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+                <li><a href="carrito.html" title="Ver carrito de compras">
+                    <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
+                </a></li>
+
+    <!-- Contenedor dinámico del usuario -->
+    <li id="nav-usuario" class="nav-usuario" style="display: none;">
+      <i class="fas fa-user-circle"></i>
+      <span id="nombre-usuario"></span>
+      <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
+    </li>
+  </ul>
+</nav>
+    </header>
+
+    <main>
+        <h2>Cuentas Completas</h2>
+        
+        <div class="buscador-container">
+            <input type="text" id="buscador-productos" placeholder="Buscar por cuenta..." aria-label="Buscar plataformas de streaming">
+            <button id="btn-buscar" aria-label="Buscar">
+              <i class="fas fa-search"></i>
+            </button>
+            <button id="btn-limpiar" aria-label="Limpiar búsqueda" style="display:none;">
+              <i class="fas fa-times"></i> Limpiar
+            </button>
+        </div>        
+        
+        <div class="grilla-productos">
+            <!-- Producto 1: Netflix -->
+            <div class="producto-grilla">
+                <img src="imagenes/STREAMING FOTOS/NETFLIX.png" alt="Netflix">
+                <h3>Netflix</h3>
+                <p class="precio">S/40.00</p>
+                <p class="descripcion">4 dispositivos de forma simultánea.</p>
+                <ul class="especificaciones">
+                    <li>4 Dispositivos simultáneos</li>
+                    <li>Contenido exclusivo</li>
+                </ul>
+                <button class="boton-agregar"
+                   data-id="netflix"
+                   data-nombre="Netflix"
+                   data-precio="45.00"
+                   data-imagen="imagenes/STREAMING FOTOS/NETFLIX.png">
+                   Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 2: Prime Video -->
+            <div class="producto-grilla">
+                <img src="imagenes/STREAMING FOTOS/prime video.png" alt="Prime Video">
+                <h3>Prime Video</h3>
+                <p class="precio">S/17.00</p>
+                <p class="descripcion">3 dispositivos de forma simultánea.</p>
+                <ul class="especificaciones">
+                    <li>3 Dispositivos simultáneos</li>
+                    <li>Acceso a contenido ilimitado</li>
+                </ul>
+                <button class="boton-agregar"
+                   data-id="prime-video"
+                   data-nombre="Prime Video"
+                   data-precio="17.00"
+                   data-imagen="imagenes/STREAMING FOTOS/prime video.png">
+                   Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 3: Movistar Play -->
+            <div class="producto-grilla">
+                <img src="imagenes/STREAMING FOTOS/MOVISTAR TV APP.png" alt="Movistar Play">
+                <h3>Movistar Play</h3>
+                <p class="precio">S/20.00</p>
+                <p class="descripcion">2 dispositivos de forma simultánea.</p>
+                <ul class="especificaciones">
+                    <li>2 Dispositivos simultáneos</li>
+                    <li>Acceso a canales premium y más</li>
+                </ul>
+                <button class="boton-agregar"
+                   data-id="movistar-play"
+                   data-nombre="Movistar Play"
+                   data-precio="18.00"
+                   data-imagen="imagenes/STREAMING FOTOS/MOVISTAR TV APP.png">
+                   Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 4: Disney+ -->
+            <div class="producto-grilla">
+                <img src="imagenes/STREAMING FOTOS/disneu.jpg" alt="Disney+">
+                <h3>Disney+</h3>
+                <p class="precio">S/30.00</p>
+                <p class="descripcion">4 dispositivos de forma simultánea.</p>
+                <ul class="especificaciones">
+                    <li>4 Dispositivos simultáneos</li>
+                    <li>Contenido exclusivo de Disney, Pixar, Marvel y Star Wars</li>
+                </ul>
+                <button class="boton-agregar"
+                   data-id="disney-plus"
+                   data-nombre="Disney+"
+                   data-precio="30.00"
+                   data-imagen="imagenes/STREAMING FOTOS/disneu.jpg">
+                   Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 5: Crunchyroll -->
+            <div class="producto-grilla">
+                <img src="imagenes/STREAMING FOTOS/crunchyrooll.png" alt="Crunchyroll">
+                <h3>Crunchyroll</h3>
+                <p class="precio">S/16.00</p>
+                <p class="descripcion">4 dispositivos de forma simultánea.</p>
+                <ul class="especificaciones">
+                    <li>4 Dispositivos simultáneos</li>
+                    <li>Contenido exclusivo de anime</li>
+                </ul>
+                <button class="boton-agregar"
+                   data-id="crunchyroll"
+                   data-nombre="Crunchyroll"
+                   data-precio="16.00"
+                   data-imagen="imagenes/STREAMING FOTOS/crunchyrooll.png">
+                   Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 6: DirecTV GO -->
+            <div class="producto-grilla">
+                <img src="imagenes/STREAMING FOTOS/DGO.png" alt="DirecTV GO">
+                <h3>DirecTV GO</h3>
+                <p class="precio">S/45.00</p>
+                <p class="descripcion">2 dispositivos simultáneos y trae Liga 1 Max.</p>
+                <ul class="especificaciones">
+                    <li>2 Dispositivos simultáneos</li>
+                    <li>Incluye Liga 1 Max</li>
+                </ul>
+                <button class="boton-agregar"
+                   data-id="directv-go"
+                   data-nombre="DirecTV GO"
+                   data-precio="45.00"
+                   data-imagen="imagenes/STREAMING FOTOS/DGO.png">
+                   Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 7: IPTV Premium -->
+            <div class="producto-grilla">
+                <img src="imagenes/STREAMING FOTOS/IPTV.png" alt="IPTV Premium">
+                <h3>IPTV Premium</h3>
+                <p class="precio">S/16.00</p>
+                <p class="descripcion">3 dispositivos de forma simultánea.</p>
+                <ul class="especificaciones">
+                    <li>3 Dispositivos simultáneos</li>
+                    <li>Acceso a más de 2000 canales en vivo</li>
+                </ul>
+                <button class="boton-agregar"
+                   data-id="iptv-premium"
+                   data-nombre="IPTV Premium"
+                   data-precio="16.00"
+                   data-imagen="imagenes/STREAMING FOTOS/IPTV.png">
+                   Agregar al Carrito
+                </button>
+            </div>
+                        <!-- Producto 8: HBO MAX  -->
+            <div class="producto-grilla">
+                <img src="imagenes/STREAMING FOTOS/hbo max.png" alt=""/>
+                <h3>Hbo Max</h3>
+                <p class="precio">S/15.00</p>
+                <p class="descripcion">2 dispositivos de forma simultánea.</p>
+                <ul class="especificaciones">
+                    <li>3 Dispositivos simultáneos</li>
+                    <li>Acceso a más de 2000 canales en vivo</li>
+                </ul>
+                <button class="boton-agregar"
+                   data-id="Hbo Max"
+                   data-nombre="Hbo Max"
+                   data-precio="15.00"
+                   data-imagen="imagenes/STREAMING FOTOS/IPTV.png">
+                   Agregar al Carrito
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <p>TechOffice &copy; 2023 - Todos los derechos reservados</p>
+            <p>Av. Tacna y Arica 160, Arequipa - Perú</p>
+            <p>Teléfono: (054) 123-4567</p>
+        </div>
+
+        <div class="redes-sociales">
+            <a href="https://web.facebook.com/techoffice.ec/?_rdc=1&_rdr#" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://www.instagram.com/tech.office_/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+        </div>
+    </footer> 
+    <script src="JS/Js.js" ></script>
+    <script src="JS/carrito.js"></script>
+    <script src="JS/buscar.js"></script>
+
+</body>
+</html>
