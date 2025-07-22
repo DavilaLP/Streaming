@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - La Tiendita de LP</title>
+    <title>Iniciar Sesión - TechOffice</title>
     
     <link rel="apple-touch-icon" sizes="180x180" href="imagenes/Icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="imagenes/Icon/favicon-32x32.png">
@@ -19,8 +19,8 @@
     
     <header>
         <div class="logo">
-            <img src="TIENDITA DE LP.png" alt="Logo Tiendita de LP" width="150"/> 
-            <h1>La Tiendita de LP</h1>
+            <img src="logo.jpg" alt="Logo TechOffice" width="150"/> 
+            <h1>TechOffice</h1>
         </div>
 
         <nav class="main-nav" aria-label="Menú principal">
@@ -30,8 +30,9 @@
 
             <ul id="nav-list" class="nav-list">
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="PERFILES.html">Perfiles</a></li>
-                <li><a href="CUENTAS COMPLETAS.html">Cuentas Completas</a></li>
+                <li><a href="PERFILES.html">Laptops</a></li>
+                <li><a href="accesorios-tablets.html">Tablets</a></li>
+                <li><a href="CUENTAS COMPLETAS.html">Cables</a></li>
                 <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
@@ -50,7 +51,7 @@
     </header>
     
     <main class="login-grid">
-       <div class="login-imagen">
+        <div class="login-imagen">
             <img src="imagenes/Inicio_Sesion/Cuadro_1.jpg" alt="Imagen 1" />
             <img src="imagenes/Inicio_Sesion/Cuadro_2.jpg" alt="Imagen 2" />
             <img src="imagenes/Inicio_Sesion/Cuadro_3.jpg" alt="Imagen 3" />
@@ -61,7 +62,7 @@
 
         <div class="login-formulario">
             <h2>Iniciar Sesión</h2>
-            <form action="#" method="POST" class="form-login">
+            <form action="#" method="POST" class="form-login" id="formLogin">
                 <label for="correo">Correo electrónico:</label>
                 <input type="email" id="correo" name="correo" required>
                 <label for="contrasena">Contraseña:</label>
@@ -88,26 +89,18 @@
     
     <footer>
         <div class="footer-info">
-            <p>La Tiendita de LP &copy; 2023 - Todos los derechos reservados</p>
-            <p>Arequipa - Perú</p>
-            <p>Teléfono: 913550624</p>
+            <p>TechOffice &copy; 2023 - Todos los derechos reservados</p>
+            <p>Av. Tacna y Arica 160, Arequipa - Perú</p>
+            <p>Teléfono: (054) 123-4567</p>
         </div>
 
         <div class="redes-sociales">
-            <a href="https://www.facebook.com/profile.php?id=61555387720171" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-            <a href="https://wa.me/51913550624" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+            <a href="https://web.facebook.com/techoffice.ec/?_rdc=1&_rdr#" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://www.instagram.com/tech.office_/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
         </div>
-    </footer>
-    
-    <!-- Modal de mensajes -->
-    <div id="modalMensaje" class="modal" style="display:none;">
-        <div class="modal-contenido">
-            <span id="cerrarModal" class="cerrar">&times;</span>
-            <p id="textoModal"></p>
-        </div>
-    </div>
-    
+    </footer> 
+
     <script src="JS/Js.js"></script>
     <script src="JS/carrito.js"></script>
 </body>
