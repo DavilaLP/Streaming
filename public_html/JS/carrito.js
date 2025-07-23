@@ -216,19 +216,6 @@ function generarPedido(datosPago) {
     return pedido;
 }
 
-function procesarPago(datosPago) {
-    const pedido = generarPedido(datosPago);
-    
-    if (pedido) {
-        mostrarModal(`Pedido #${pedido.id} generado con éxito. Redirigiendo...`);
-        setTimeout(() => {
-            window.location.href = `seguimiento-pedidos.html?pedido=${pedido.id}`;
-        }, 2000);
-        return true;
-    }
-    return false;
-}
-
 function mostrarModal(mensaje) {
     const modal = document.getElementById("modalMensaje");
     const textoModal = document.getElementById("textoModal");
