@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Menú hamburguesa
 document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById('menu-toggle');
     const navList = document.getElementById('nav-list');
