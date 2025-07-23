@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Obtener los datos del formulario
             const nombre = document.getElementById('nombre').value.trim();
             const email = document.getElementById('email').value.trim();
-            const direccion = document.getElementById('direccion').value.trim();
+            const direccion = document.getElementById('Numero de celular').value.trim();
             const metodoPago = document.getElementById('metodo-pago').value;
             const comentarios = document.getElementById('comentarios').value.trim();
 
