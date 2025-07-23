@@ -83,3 +83,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navList = document.getElementById('nav-list');
+
+    // Agregar un evento de clic al botón del menú
+    menuToggle.addEventListener('click', () => {
+        // Alternar la clase 'show' que controla la visibilidad
+        navList.classList.toggle('show');
+    });
+});
