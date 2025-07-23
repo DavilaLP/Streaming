@@ -1,3 +1,4 @@
+// Funcionalidad de registro
 document.addEventListener("DOMContentLoaded", () => {
     const formRegistro = document.getElementById('formRegistro');
 
@@ -40,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Carrusel de productos
 document.addEventListener("DOMContentLoaded", () => {
     const productosWrapper = document.querySelector(".productos-wrapper");
     const productos = document.querySelectorAll(".producto");
@@ -62,6 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Iniciar movimiento
     moverCarrusel();
 });
+
+// Acordeón para mostrar/ocultar respuestas
 document.addEventListener("DOMContentLoaded", function() {
     // Obtener todos los botones de acordeón
     const acordeones = document.querySelectorAll(".acordeon");
@@ -83,6 +88,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// Menú hamburguesa
 document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById('menu-toggle');
     const navList = document.getElementById('nav-list');
@@ -92,4 +99,62 @@ document.addEventListener("DOMContentLoaded", () => {
         // Alternar la clase 'show' que controla la visibilidad
         navList.classList.toggle('show');
     });
+});
+
+// Verificación de sesión activa (mostrar perfil y cerrar sesión)
+document.addEventListener("DOMContentLoaded", () => {
+    const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
+    const nombreUsuario = document.getElementById('nombre-usuario');
+    const btnLogout = document.getElementById('btn-logout');
+    const navUsuario = document.getElementById('nav-usuario');
+    const navLogin = document.getElementById('nav-login');
+
+    // Si el usuario está logueado, mostrar su nombre y el botón de logout
+    if (usuarioLogueado) {
+        nombreUsuario.textContent = usuarioLogueado.nombre;
+        navUsuario.style.display = 'block';  // Mostrar el perfil y botón de logout
+        navLogin.style.display = 'none';    // Ocultar el botón de login
+    } else {
+        navUsuario.style.display = 'none';  // Ocultar el perfil y botón de logout
+        navLogin.style.display = 'block';   // Mostrar el botón de login
+    }
+
+    // Lógica para cerrar sesión
+    if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+            localStorage.removeItem('usuarioLogueado');  // Eliminar el usuario del localStorage
+            alert("Sesión cerrada");
+            window.location.href = 'inicio-Sesion.html'; // Redirigir a la página de inicio de sesión
+        });
+    }
+});
+
+// Función para manejar el login
+document.addEventListener("DOMContentLoaded", () => {
+    const formLogin = document.getElementById('formLogin');
+
+    if (formLogin) {
+        formLogin.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+            const correo = formLogin.correo.value.trim();
+            const contrasena = formLogin.contrasena.value.trim();
+
+            // Obtener los usuarios registrados desde localStorage
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            // Verificar si el correo y la contraseña coinciden
+            const usuario = usuarios.find(u => u.correo === correo && u.contrasena === contrasena);
+            
+            if (usuario) {
+                // Si el usuario existe, guardar su información en localStorage
+                localStorage.setItem('usuarioLogueado', JSON.stringify(usuario));
+
+                // Redirigir al usuario a la página de inicio
+                window.location.href = 'index.html'; // Redirigir a la página principal
+            } else {
+                alert("Correo o contraseña incorrectos.");
+            }
+        });
+    }
 });
