@@ -1,102 +1,85 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const formRegistro = document.getElementById('formRegistro');
 
-  //==================
-  // Variables globales para el nav usuario y login
-  //==================
-  const navUsuario = document.getElementById('nav-usuario');
-  const btnLogout = document.getElementById('btn-logout');
-  const navLoginLi = document.getElementById('nav-login'); // ID que debe tener el <li> del login
+    if (formRegistro) {
+        formRegistro.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-  //==================
-  // Funciones para manejo de usuarios en localStorage
-  //==================
-  function obtenerUsuarios() {
-    const usuarios = localStorage.getItem('usuarios');
-    return usuarios ? JSON.parse(usuarios) : [];
-  }
+            const nombre = formRegistro.nombre.value.trim();
+            const correo = formRegistro.correo.value.trim();
+            const contrasena = formRegistro.contrasena.value.trim();
 
-  function guardarUsuarios(usuarios) {
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-  }
+            if (!nombre || !correo || !contrasena) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
 
-  //==================
-  // Login y Mostrar Usuario Logueado en el Navegador
-  //==================
-  const formLogin = document.getElementById('formLogin');
+            // Obtener usuarios previamente registrados
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-  if (formLogin) {
-    formLogin.addEventListener('submit', (e) => {
-      e.preventDefault();
+            // Verificar si el correo ya está registrado
+            const usuarioExistente = usuarios.find(u => u.correo === correo);
+            if (usuarioExistente) {
+                alert("Este correo ya está registrado.");
+                return;
+            }
 
-      const correo = formLogin.correo.value.trim();
-      const contrasena = formLogin.contrasena.value.trim();
+            // Crear un nuevo usuario
+            const nuevoUsuario = { nombre, correo, contrasena };
 
-      if (!correo || !contrasena) {
-        alert("Por favor, complete ambos campos.");
-        return;
-      }
+            // Agregar el nuevo usuario a la lista de usuarios
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios)); // Guardar usuarios en localStorage
 
-      const usuarios = obtenerUsuarios();
-      const usuarioValido = usuarios.find(u => u.correo === correo && u.contrasena === contrasena);  // Validación
+            alert("Registro exitoso. Ahora puedes iniciar sesión.");
 
-      if (usuarioValido) {
-        alert("Inicio de sesión exitoso. ¡Bienvenido!");
-        localStorage.setItem('usuarioLogueado', JSON.stringify(usuarioValido));  // Guardamos el usuario logueado
-
-        // Redirigir a la página principal
-        setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 2000); // Espera 2 segundos antes de redirigir
-      } else {
-        alert("Correo o contraseña incorrectos.");
-      }
-    });
-  }
-
-  //==================
-  // Mostrar usuario logueado en nav
-  //==================
-  function mostrarUsuarioEnNav() {
-    const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
-
-    if (usuarioLogueado) {
-      navUsuario.style.display = 'inline-flex';
-      document.getElementById('nombre-usuario').textContent = usuarioLogueado.nombre || usuarioLogueado.correo;
-      if (navLoginLi) navLoginLi.style.display = 'none';
-    } else {
-      navUsuario.style.display = 'none';
-      if (navLoginLi) navLoginLi.style.display = 'list-item';
+            // Redirigir a la página de inicio de sesión
+            setTimeout(() => {
+                window.location.href = 'inicio-Sesion.html';  // Redirige a la página de login
+            }, 2000); // Espera 2 segundos antes de redirigir
+        });
     }
-  }
-
-  mostrarUsuarioEnNav();
-
-  //==================
-  // Logout
-  //==================
-  btnLogout.addEventListener('click', () => {
-    localStorage.removeItem('usuarioLogueado');
-    if (navLoginLi) navLoginLi.style.display = 'list-item';
-    navUsuario.style.display = 'none';
-  });
-
 });
-
 document.addEventListener("DOMContentLoaded", () => {
-  const carrusel = document.querySelector('.productos-wrapper'); // Asegúrate de que este selector sea correcto
-  const scrollSpeed = 1;
-  let scrollPosition = 0;
-  
-  function moveCarrusel() {
-    carrusel.scrollLeft += scrollSpeed;
+    const productosWrapper = document.querySelector(".productos-wrapper");
+    const productos = document.querySelectorAll(".producto");
+    const scrollSpeed = 1; // velocidad de desplazamiento
+    let scrollPosition = 0;
 
-    if (carrusel.scrollLeft >= carrusel.scrollWidth / 2) {
-      carrusel.scrollLeft = 0; // Vuelve al inicio cuando llega al final
+    // Función para mover el carrusel
+    function moverCarrusel() {
+        productosWrapper.scrollLeft += scrollSpeed; // Desplazamiento de los productos
+
+        // Verificar si se ha llegado al final y volver al principio
+        if (productosWrapper.scrollLeft >= productosWrapper.scrollWidth / 2) {
+            productosWrapper.scrollLeft = 0; // Volver al principio
+        }
+
+        // Llamar de nuevo a la función para hacer el desplazamiento continuo
+        requestAnimationFrame(moverCarrusel);
     }
 
-    // Llamar a la función de nuevo
-    requestAnimationFrame(moveCarrusel);
-  }
+    // Iniciar movimiento
+    moverCarrusel();
+});
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener todos los botones de acordeón
+    const acordeones = document.querySelectorAll(".acordeon");
 
-  moveCarrusel();
+    // Añadir un evento 'click' a cada uno de los botones
+    acordeones.forEach(button => {
+        button.addEventListener("click", function() {
+            // Alternar la visibilidad de la respuesta correspondiente
+            const respuesta = this.nextElementSibling;
+
+            // Alternar la clase 'activo' para animación (si quieres agregar animación)
+            this.classList.toggle("activo");
+            
+            if (respuesta.style.display === "block") {
+                respuesta.style.display = "none";  // Ocultar la respuesta
+            } else {
+                respuesta.style.display = "block"; // Mostrar la respuesta
+            }
+        });
+    });
 });

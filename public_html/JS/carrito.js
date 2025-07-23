@@ -69,7 +69,7 @@ function manejarAgregarAlCarrito(event) {
 
     if (guardarCarrito(carrito)) {
         actualizarContadorCarrito();
-        alert(`${producto.nombre} se agregó al carrito 🛒`); 
+        alert(`${producto.nombre} se agregó al carrito 🛒`);
     }
 }
 

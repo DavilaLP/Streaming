@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,29 @@
   <link rel="stylesheet" href="css/estilos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
 <body>
   <header>
     <div class="logo">
       <img src="logo.jpg" alt="Logo La Tiendita de LP" width="150" />
-      <h1>La Tiendita de LP</h1>
+      <h1>Streaming LP</h1>
     </div>
     <nav class="main-nav" aria-label="Menú principal">
       <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
         &#9776;
       </button>
 
-         <ul id="nav-list" class="nav-list">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="PERFILES.html">Perfiles</a></li>
-                <li><a href="CUENTAS COMPLETAS.html">Cuentas Completas</a></li>
-                <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
-                <li><a href="carrito.html" title="Ver carrito de compras">
+      <ul id="nav-list" class="nav-list">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="PERFILES.html">Perfiles</a></li>
+        <li><a href="CUENTAS COMPLETAS.html">Cuentas Completas</a></li>
+        <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+        <li><a href="carrito.html" title="Ver carrito de compras">
           <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
-         </a></li>
-        
+        </a></li>
+
         <li id="nav-usuario" class="nav-usuario" style="display: none;">
           <i class="fas fa-user-circle"></i>
           <span id="nombre-usuario"></span>
@@ -45,9 +47,9 @@
       </section>
 
       <aside class="resumen-carrito">
-        <h3>Resumen del carrito</h3>
-        <p>Total: <span class="total">S/17.00</span></p>
-        <button id="vaciar-carrito">Vaciar carrito</button>
+      <h3>Resumen del carrito</h3>
+      <p>Total: <span class="total">S/0.00</span></p>
+       <button id="vaciar-carrito">Vaciar carrito</button>
         <a href="proceso-pago.html" id="proceder-pago">Proceder al pago</a>
         <a href="seguimiento-pedidos.html" id="seguimiento-pedidos" class="boton-seguimiento">
           <i class="fas fa-truck"></i> Seguimiento de Pedidos
@@ -65,11 +67,7 @@
       <div class="pedido-detalle">
         <h4>Productos:</h4>
         <ul class="lista-productos">
-          <li>
-            <span class="producto-nombre">Prime Video</span>
-            <span class="producto-cantidad">1 x S/17.00</span>
-            <span class="producto-subtotal">S/17.00</span>
-          </li>
+          <!-- El contenido aquí será reemplazado dinámicamente por JavaScript -->
         </ul>
 
         <div class="pedido-total">
@@ -105,29 +103,8 @@
   </footer>
 
   <script src="JS/Js.js"></script>
-  <script src="JS/carrito.js"></script>
+  <script src="JS/carrito.js" type="text/javascript"></script>
   <script src="JS/seguimiento-pedidos.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Función para enviar baucher de pago a WhatsApp
-      const enviarBaucherBtns = document.querySelectorAll('#enviar-baucher');
-      
-      enviarBaucherBtns.forEach((btn) => {
-        btn.addEventListener('click', function() {
-          const pedidoId = this.getAttribute('data-pedido-id');
-          const mensaje = `¡Hola! Soy cliente de "La Tiendita de LP". Aquí está mi baucher de pago para el pedido #${pedidoId}:\n\n`;
-
-          // Puedes incluir más detalles si los tienes almacenados en el pedido
-          const detallesPedido = `
-            Producto: Prime Video\n
-            Total: S/17.00\n
-          `;
-
-          const mensajeFinal = encodeURIComponent(mensaje + detallesPedido);
-          window.open(`https://wa.me/51913550624?text=${mensajeFinal}`, '_blank');
-        });
-      });
-    });
-  </script>
 </body>
+
 </html>
