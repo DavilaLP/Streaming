@@ -55,6 +55,7 @@ document.getElementById('formulario-pago').addEventListener('submit', function(e
     // Enviar los datos a WhatsApp
     const url = `https://wa.me/51913550624?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank'); // Abrir WhatsApp en una nueva ventana
+    localStorage.removeItem('carrito');
 
     // Redirigir a la página de seguimiento de pedidos
     window.location.href = 'seguimiento-pedidos.html';
